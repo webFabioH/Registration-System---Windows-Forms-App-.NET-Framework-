@@ -158,6 +158,7 @@
             // radioM
             // 
             this.radioM.AutoSize = true;
+            this.radioM.Checked = true;
             this.radioM.Location = new System.Drawing.Point(7, 33);
             this.radioM.Name = "radioM";
             this.radioM.Size = new System.Drawing.Size(89, 20);
@@ -206,6 +207,7 @@
             this.btnRegister.TabIndex = 12;
             this.btnRegister.Text = "Cadastrar / Alterar";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // btnDelete
             // 
@@ -216,6 +218,7 @@
             this.btnDelete.TabIndex = 13;
             this.btnDelete.Text = "Excluir";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnClear
             // 
@@ -225,6 +228,7 @@
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Limpar";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // Form1
             // 

@@ -31,5 +31,67 @@ namespace RegistrationSystem
 
             comboMS.SelectedIndex = 0;
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            int index = -1;
+
+            foreach (People p in peoples)
+            {
+                if (p.Name == txtName.Text)
+                {
+                    index = peoples.IndexOf(p);
+                }
+            }
+
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("Preencha o campo nome.");
+                txtName.Focus();
+                return;
+            }
+
+            if (txtPhoneNumber.Text == "")
+            {
+                MessageBox.Show("Preencha o campo Telefone.");
+                txtPhoneNumber.Focus();
+                return;
+            }
+
+            char gender;
+
+            if (radioM.Checked)
+            {
+                gender = 'M';
+            }
+            else if (radioF.Checked)
+            {
+                gender = 'F';
+            }
+            else
+            {
+                gender = 'O';
+            }
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void List()
+        {
+            list.Items.Clear();
+
+            foreach (People p in peoples)
+            {
+                list.Items.Add(p.Name);
+            }
+        }
     }
 }
