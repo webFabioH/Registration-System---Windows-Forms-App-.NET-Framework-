@@ -36,11 +36,11 @@ namespace RegistrationSystem
         {
             int index = -1;
 
-            foreach (People p in peoples)
+            foreach (People people in peoples)
             {
-                if (p.Name == txtName.Text)
+                if (people.Name == txtName.Text)
                 {
-                    index = peoples.IndexOf(p);
+                    index = peoples.IndexOf(people);
                 }
             }
 
@@ -51,7 +51,7 @@ namespace RegistrationSystem
                 return;
             }
 
-            if (txtPhoneNumber.Text == "")
+            if (txtPhoneNumber.Text == "(  )      -")
             {
                 MessageBox.Show("Preencha o campo Telefone.");
                 txtPhoneNumber.Focus();
@@ -72,16 +72,51 @@ namespace RegistrationSystem
             {
                 gender = 'O';
             }
+
+            People p = new People();
+            p.Name = txtName.Text;
+            p.BirthDate = txtDate.Text;
+            p.MaritalStatus = comboMS.SelectedItem.ToString();
+            p.PhoneNumber = txtPhoneNumber.Text;
+            p.OwnHouse = checkHome.Checked;
+            p.Vehicle = checkVehicle.Checked;
+            p.Gender = gender;
+
+            if (index < 0)
+            {
+                peoples.Add(p);
+            }
+            else
+            {
+                peoples[index] = p;
+            }
+            
+            btnClear_Click(btnClear, EventArgs.Empty);
+
+            List();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+            int i = list.SelectedIndex;
+            peoples.RemoveAt(i);
 
+            List();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            txtName.Text = "";
+            txtDate.Text = "";
+            comboMS.SelectedIndex = 0;
+            txtPhoneNumber.Text = "";
+            checkHome.Checked = false;
+            checkVehicle.Checked = false;
+            radioM.Checked = true;
+            radioF.Checked = false;
+            radioO.Checked = false;
 
+            txtName.Focus();
         }
 
         private void List()
