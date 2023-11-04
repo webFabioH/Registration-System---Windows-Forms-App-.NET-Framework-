@@ -198,6 +198,7 @@
             this.list.Name = "list";
             this.list.Size = new System.Drawing.Size(957, 128);
             this.list.TabIndex = 11;
+            this.list.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.list_MouseDoubleClick);
             // 
             // btnRegister
             // 
